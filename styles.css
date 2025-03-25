@@ -1,0 +1,62 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f8f8f8;
+}
+
+/* Header and Footer */
+header, footer {
+    background: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    background: #333;
+    padding: 0.5rem;
+}
+
+nav a {
+    color: white;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background: #4CAF50;
+}
+
+/* Page Containers */
+.container {
+    padding: 50px;
+    text-align: center;
+}
+
+/* Product Section */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px gray;
+    width: 250px;
+    text-align: center;
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
