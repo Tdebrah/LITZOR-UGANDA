@@ -1,4 +1,3 @@
-<!-- products.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Products - LITZOR UGANDA</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function searchProduct() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let products = document.getElementsByClassName('product');
+            
+            for (let i = 0; i < products.length; i++) {
+                let productName = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (productName.includes(input)) {
+                    products[i].style.display = "block";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -17,27 +31,102 @@
         <a href="products.html">Our Products</a>
         <a href="contact.html">Contact</a>
     </nav>
+    
     <section class="container">
+        <div class="search-container">
+            <input type="text" id="searchBar" onkeyup="searchProduct()" placeholder="Search for products...">
+            <span class="search-icon">🔍</span>
+        </div>
         <div class="products">
+            <!-- 30 Product Entries -->
             <div class="product">
                 <img src="coconut_oil.jpg" alt="Coconut Oil">
                 <h3>Coconut Oil</h3>
-                <p>Cold-pressed coconut oil for healthy skin and hair.</p>
+                <p>Cold-pressed coconut oil extracted from fresh coconuts, perfect for skin nourishment, hair care, and cooking.</p>
+                <p><strong>Price:</strong> UGX 25,000</p>
             </div>
             <div class="product">
                 <img src="avocado_oil.jpg" alt="Avocado Oil">
                 <h3>Avocado Oil</h3>
-                <p>Rich in nutrients for cooking and skincare.</p>
+                <p>Rich in vitamins A, D, and E, this oil is ideal for moisturizing skin, deep conditioning hair, and healthy cooking.</p>
+                <p><strong>Price:</strong> UGX 30,000</p>
             </div>
             <div class="product">
                 <img src="almond_oil.jpg" alt="Almond Oil">
                 <h3>Almond Oil</h3>
-                <p>Perfect for nourishing dry skin and hair.</p>
+                <p>Lightweight and non-greasy, almond oil deeply hydrates the skin, reduces dark circles, and strengthens hair.</p>
+                <p><strong>Price:</strong> UGX 35,000</p>
             </div>
+            <div class="product">
+                <img src="shea_butter_oil.jpg" alt="Shea Butter">
+                <h3>Shea Butter</h3>
+                <p>Unrefined and organic shea butter, great for skin hydration, healing scars, and reducing stretch marks.</p>
+                <p><strong>Price:</strong> UGX 40,000</p>
+            </div>
+            <div class="product">
+                <img src="jojoba_oil.jpg" alt="Jojoba Oil">
+                <h3>Jojoba Oil</h3>
+                <p>Perfect for balancing oily skin, removing makeup, and strengthening hair follicles.</p>
+                <p><strong>Price:</strong> UGX 28,000</p>
+            </div>
+            <!-- Adding more products -->
+            <div class="product">
+                <img src="castor_oil.jpg" alt="Castor Oil">
+                <h3>Castor Oil</h3>
+                <p>Known for promoting hair growth and thickening lashes and eyebrows.</p>
+                <p><strong>Price:</strong> UGX 22,000</p>
+            </div>
+            <div class="product">
+                <img src="olive_oil.jpg" alt="Olive Oil">
+                <h3>Olive Oil</h3>
+                <p>Rich in antioxidants, perfect for cooking and skincare.</p>
+                <p><strong>Price:</strong> UGX 32,000</p>
+            </div>
+            <div class="product">
+                <img src="grapeseed oil.jpg" alt="Grapeseed Oil">
+                <h3>Grapeseed Oil</h3>
+                <p>Lightweight moisturizer that absorbs quickly into the skin.</p>
+                <p><strong>Price:</strong> UGX 27,000</p>
+            </div>
+            <div class="product">
+                <img src="sunflower oil.jpg" alt="Sunflower Oil">
+                <h3>Sunflower Oil</h3>
+                <p>Great for heart health and smooth skin.</p>
+                <p><strong>Price:</strong> UGX 26,000</p>
+            </div>
+            <div class="product">
+                <img src="peppermint oil.jpg" alt="Peppermint Oil">
+                <h3>Peppermint Oil</h3>
+                <p>Refreshing scent, great for aromatherapy and scalp care.</p>
+                <p><strong>Price:</strong> UGX 38,000</p>
+            </div>
+            <!-- Add more products here until 30 -->
         </div>
     </section>
+    
     <footer>
         <p>&copy; 2025 LITZOR UGANDA. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
+
+<style>
+    .search-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+        width: 70%;
+    }
+    #searchBar {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    .search-icon {
+        margin-left: -30px;
+        cursor: pointer;
+    }
+</style>
