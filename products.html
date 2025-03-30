@@ -3,23 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Products - LITZOR UGANDA</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        function searchProduct() {
-            let input = document.getElementById('searchBar').value.toLowerCase();
-            let products = document.getElementsByClassName('product');
-            
-            for (let i = 0; i < products.length; i++) {
-                let productName = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
-                if (productName.includes(input)) {
-                    products[i].style.display = "block";
-                } else {
-                    products[i].style.display = "none";
-                }
-            }
+    <title>Product Cards</title>
+    <style>
+        /* body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background-color: #f8f8f8;
+            height: 100vh;
+        } */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-    </script>
+
+/* Header and Footer */
+        header, footer {
+            background: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+/* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #333;
+            padding: 0.5rem;
+        }
+
+        nav a {
+            color: white;
+            padding: 1rem;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background: #4CAF50;
+        }
+        .search-container{
+            padding: 10px;
+            text-align: center;      
+        }
+        #searchBar{
+            height: 30px;
+            width: 70%;
+        }
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: nowrap;
+            margin: 10px;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px gray;
+            width: 250px;
+            height: auto;
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .modal, .account-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            max-height: 80vh;
+            overflow-y: auto;
+            text-align: center;
+        }
+        li{
+            list-style: none;
+        }
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .cart-button {
+            background-color: green;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .submit-button {
+            background-color: blue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -31,102 +141,263 @@
         <a href="products.html">Our Products</a>
         <a href="contact.html">Contact</a>
     </nav>
-    
-    <section class="container">
-        <div class="search-container">
+    <div class="search-container">
             <input type="text" id="searchBar" onkeyup="searchProduct()" placeholder="Search for products...">
             <span class="search-icon">🔍</span>
+    </div>
+    <div class="card-container">
+        <div class="card">
+            <img src="almond_oil.jpg" alt="Almond Oil">
+            <h3>Almond Oil</h3>
+            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
+            <p><strong>Price:</strong> UGX 25,000</p>
+            <a href="#" onclick="openModal('almond')">Read More</a>
         </div>
-        <div class="products">
-            <!-- 30 Product Entries -->
-            <div class="product">
-                <img src="coconut_oil.jpg" alt="Coconut Oil">
-                <h3>Coconut Oil</h3>
-                <p>Cold-pressed coconut oil extracted from fresh coconuts, perfect for skin nourishment, hair care, and cooking.</p>
-                <p><strong>Price:</strong> UGX 25,000</p>
-            </div>
-            <div class="product">
-                <img src="avocado_oil.jpg" alt="Avocado Oil">
-                <h3>Avocado Oil</h3>
-                <p>Rich in vitamins A, D, and E, this oil is ideal for moisturizing skin, deep conditioning hair, and healthy cooking.</p>
-                <p><strong>Price:</strong> UGX 30,000</p>
-            </div>
-            <div class="product">
-                <img src="almond_oil.jpg" alt="Almond Oil">
-                <h3>Almond Oil</h3>
-                <p>Lightweight and non-greasy, almond oil deeply hydrates the skin, reduces dark circles, and strengthens hair.</p>
-                <p><strong>Price:</strong> UGX 35,000</p>
-            </div>
-            <div class="product">
-                <img src="shea_butter_oil.jpg" alt="Shea Butter">
-                <h3>Shea Butter</h3>
-                <p>Unrefined and organic shea butter, great for skin hydration, healing scars, and reducing stretch marks.</p>
-                <p><strong>Price:</strong> UGX 40,000</p>
-            </div>
-            <div class="product">
-                <img src="jojoba_oil.jpg" alt="Jojoba Oil">
-                <h3>Jojoba Oil</h3>
-                <p>Perfect for balancing oily skin, removing makeup, and strengthening hair follicles.</p>
-                <p><strong>Price:</strong> UGX 28,000</p>
-            </div>
-            <!-- Adding more products -->
-            <div class="product">
-                <img src="castor_oil.jpg" alt="Castor Oil">
-                <h3>Castor Oil</h3>
-                <p>Known for promoting hair growth and thickening lashes and eyebrows.</p>
-                <p><strong>Price:</strong> UGX 22,000</p>
-            </div>
-            <div class="product">
-                <img src="olive_oil.jpg" alt="Olive Oil">
-                <h3>Olive Oil</h3>
-                <p>Rich in antioxidants, perfect for cooking and skincare.</p>
-                <p><strong>Price:</strong> UGX 32,000</p>
-            </div>
-            <div class="product">
-                <img src="grapeseed oil.jpg" alt="Grapeseed Oil">
-                <h3>Grapeseed Oil</h3>
-                <p>Lightweight moisturizer that absorbs quickly into the skin.</p>
-                <p><strong>Price:</strong> UGX 27,000</p>
-            </div>
-            <div class="product">
-                <img src="sunflower oil.jpg" alt="Sunflower Oil">
-                <h3>Sunflower Oil</h3>
-                <p>Great for heart health and smooth skin.</p>
-                <p><strong>Price:</strong> UGX 26,000</p>
-            </div>
-            <div class="product">
-                <img src="peppermint oil.jpg" alt="Peppermint Oil">
-                <h3>Peppermint Oil</h3>
-                <p>Refreshing scent, great for aromatherapy and scalp care.</p>
-                <p><strong>Price:</strong> UGX 38,000</p>
-            </div>
-            <!-- Add more products here until 30 -->
+        
+        <div class="card">
+            <img src="shea_butter_oil.jpg" alt="Shea Butter">
+            <h3>Shea Butter</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 40,000</p>
+            <a href="#" onclick="openModal('shea')">Read More</a>
         </div>
-    </section>
+        <div class="card">
+            <img src="avocado_oil.jpg" alt="Avocado Oil">
+            <h3>Avocado Oil</h3>
+            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
+            <p><strong>Price:</strong> UGX 35,000</p>
+            <a href="#" onclick="openModal('avocado')">Read More</a>
+        </div>
+        
+    </div>
+    <div class="card-container">
+       
+        <div class="card">
+            <img src="castor_oil.jpg" alt="Castor Oil">
+            <h3>Castor Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 50,000</p>
+            <a href="#" onclick="openModal('castor')">Read More</a>
+        </div>
+        <div class="card">
+            <img src="coconut_oil.jpg" alt="Coconut Oil">
+            <h3>Coconut Oil</h3>
+            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
+            <p><strong>Price:</strong> UGX 35,000</p>
+            <a href="#" onclick="openModal('coconut')">Read More</a>
+        </div>
+        
+        <div class="card">
+            <img src="grapeseed oil.jpg" alt="Grapeseed Oil">
+            <h3>Grape Seed Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 40,000</p>
+            <a href="#" onclick="openModal('grapeseed')">Read More</a>
+        </div>
+    </div>
+    <div class="card-container">
+             
+        <div class="card">
+            <img src="jojoba_oil.jpg" alt="Jojoba Oil">
+            <h3>Jojoba Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 40,000</p>
+            <a href="#" onclick="openModal('jojoba')">Read More</a>
+        </div>
+        <div class="card">
+            <img src="olive_oil.jpg" alt="Olive Oil">
+            <h3>Olive Oil</h3>
+            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
+            <p><strong>Price:</strong> UGX 35,000</p>
+            <a href="#" onclick="openModal('olive')">Read More</a>
+        </div>
+        
+        <div class="card">
+            <img src="peppermint oil.jpg" alt="Peppermint">
+            <h3>Peppermint Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 40,000</p>
+            <a href="#" onclick="openModal('peppermint')">Read More</a>
+        </div>
+    </div>
+    <div class="card-container">
+        
+        <div class="card">
+            <img src="sunflower oil.jpg" alt="Sunflower">
+            <h3>Sunflower Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 40,000</p>
+            <a href="#" onclick="openModal('sunflower')">Read More</a>
+        </div>
+        <div class="card">
+            <img src="coffee oil.jpg" alt="Coffee Oil">
+            <h3>Coffee Oil</h3>
+            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
+            <p><strong>Price:</strong> UGX 200,000</p>
+            <a href="#" onclick="openModal('cofee')">Read More</a>
+        </div>
+        
+        <div class="card">
+            <img src="neem oil.jpg" alt="Neem Oil">
+            <h3>Neem Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 50,000</p>
+            <a href="#" onclick="openModal('neem')">Read More</a>
+        </div>
+    </div>
+    <div class="card-container">
+       
+        <div class="card">
+            <img src="g.nut oil.jpg" alt="G.nut Oil">
+            <h3>Ground Nut Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 40,000</p>
+            <a href="#" onclick="openModal('gnut')">Read More</a>
+        </div>
+        <div class="card">
+            <img src="sesame oil.jpg" alt="sesame Oil">
+            <h3>Sesame Oil</h3>
+            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
+            <p><strong>Price:</strong> UGX 35,000</p>
+            <a href="#" onclick="openModal('sesame')">Read More</a>
+        </div>
+        
+        <div class="card">
+            <img src="Zakuro oil.jpg" alt="Zakuro Oil">
+            <h3>Zakuro Oil</h3>
+            <p>Unrefined and organic, great for skin hydration.</p>
+            <p><strong>Price:</strong> UGX 40,000</p>
+            <a href="#" onclick="openModal('zakuro')">Read More</a>
+        </div>
+    </div>
     
+
+    <!-- Product Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-details"></p>
+            <button class="cart-button" onclick="openAccountModal()">Create Account to Order</button>
+        </div>
+    </div>
+
+    <!-- Account Creation Modal -->
+    <div id="account-modal" class="account-modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAccountModal()">&times;</span>
+            <h2>Create Account</h2>
+            <form id="account-form">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" required>
+                </div>
+                <button type="submit" class="submit-button">Submit</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+         function searchProduct() {
+            let input = document.getElementById('searchBar').value.toLowerCase();
+            let products = document.getElementsByClassName('card');
+            
+            for (let i = 0; i < products.length; i++) {
+                let productName = products[i].getElementsByTagName('h3')[0].innerText.toLowerCase();
+                if (productName.includes(input)) {
+                    products[i].style.display = "block";
+                } else {
+                    products[i].style.display = "none";
+                }
+            }
+        }
+        function openModal(product) {
+            const modal = document.getElementById('modal');
+            const title = document.getElementById('modal-title');
+            const details = document.getElementById('modal-details');
+
+            if (product === 'almond') {
+                title.innerText = 'Almond Oil';
+                details.innerHTML = '<p><strong>Description:</strong> Almond oil is extracted from sweet almonds through expression. Sweet almonds come from Prunus amygdalus and do not contain toxic chemicals, perfect for skin nourishment, hair care, and cooking.</p><p><strong>For Skin:</strong><ul><li>Moisturizing:Almond oil is an excellent emollient, meaning it can soften and hydrate the skin, preventing dryness and flakiness.</li><li>Reduces Dark Circles:Regular application can help hydrate the delicate under-eye skin, improve circulation, and diminish the appearance of puffiness and dark circles.</li><li>Reduces Stretch Marks:Almond oil can help improve skin elasticity and reduce the appearance of stretch marks.</li><li>Protects Against Sun Damage:It contains natural sun protection properties that can help protect your skin from harmful UV rays.</li><li>Improves Complexion:Almond oil can help improve skin tone and reduce the appearance of blemishes, leading to a more radiant complexion.</li><li>Makeup Remover:Almond oil can be used as a gentle and effective makeup remover, nourishing the skin while removing makeup.</li><li>Anti-aging:Almond oil is rich in antioxidants that can help reduce the signs of aging.</li><strong>For Hair:</strong><li>Promotes Hair Growth:Almond oil contains biotin and magnesium, which are essential nutrients for hair growth.</li><li>Strengthens Hair:The emollient nature of almond oil strengthens hair shafts and helps prevent split ends.</li><li>Reduces Dandruff:Almond oil can help moisturize the scalp, reduce inflammation, and promote a healthier scalp environment, ultimately reducing dandruff.</li></ul><strong>Other Benefits:</strong>Rich in Nutrients: Almond oil is rich in vitamins (especially vitamin E), minerals, and fatty acids, making it a valuable addition to a healthy lifestyle.Blood Sugar Control: The healthy fats in almond oil can help stabilize blood sugar levels.Antioxidant and Anti-inflammatory: Almond oil is known for its antioxidant and anti-inflammatory properties, which can help protect the body from damage.</p><p><strong>Guidelines:</strong> Apply to skin or hair as needed. For consumption, use one teaspoon daily.</p><p><strong>Precautions:</strong> Avoid use on broken skin; may cause irritation in sensitive individuals.</p><p><strong>Certification:</strong> Approved by UNBS for quality assurance.</p><p><strong>Branches:</strong> Available at Kampala, Jinja, and Mbarara outlets.</p><p><strong>Where to Buy:</strong> Supermarkets, pharmacies, and online stores.</p><p><strong>Price:</strong> UGX 25,000</p>';
+            } else if (product === 'shea') {
+                title.innerText = 'Shea Butter';
+                details.innerHTML = '<strong>Benefits:</strong><li>Deeply hydrates and nourishes dry skin</li><li>Rich in vitamins A and E, which promote skin healing</li><li>Reduces inflammation and soothes eczema and psoriasis</li><li>Helps fade scars, stretch marks, and dark spots</li><li>Provides natural sun protection (SPF 3-6)</li><li>Boosts collagen production, keeping skin youthful</li><li>Softens and conditions hair, preventing breakage</li><li>Reduces dandruff and soothes an itchy scalp</li><li>Acts as a natural anti-aging treatment</li><li>Heals minor cuts, burns, and insect bites</li><br><strong>Ingredients:</strong> 100% organic shea butter.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            } else if (product === 'avocado') {
+                title.innerText = 'Avocado Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A deeply hydrating oil rich in vitamins A, D, and E, known for nourishing skin, boosting collagen, and promoting hair health.</p><strong>Benefits:</strong> <ul><li>Deeply hydrates and nourishes the skin</li><li>Rich in vitamins A, D, and E for skin health</li><li>Boosts collagen production and reduces wrinkles</li><li>Soothes inflammation and calms eczema or psoriasis</li><li>Strengthens hair and promotes hair growth</li><li>Protects against UV radiation and environmental damage</li><li>Improves wound healing and reduces scarring</li><li>Moisturizes the scalp and prevents dandruff</li><li>Supports heart health with monounsaturated fats</li><li>Acts as a natural sunscreen and skin protector</li></ul><br><strong>Ingredients:</strong> 100% organic avocado.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'castor') {
+                title.innerText = 'Castor Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A thick oil with antibacterial properties that promotes hair growth, strengthens lashes and brows, and soothes dry skin.</p><strong>Benefits:</strong><ul><li>Promotes hair growth and thickens eyelashes and eyebrows</li><li>Moisturizes dry skin and soothes irritation</li><li>Contains antimicrobial properties to fight acne</li><li>Relieves constipation when taken internally</li><li>Reduces joint pain and inflammation</li><li>Boosts circulation and improves wound healing</li><li>Fights fungal infections such as ringworm</li><li>Conditions and strengthens nails</li><li>Acts as a natural detoxifier for the skin</li><li>Improves scalp health and reduces dandruff</li></ul><br><strong>Ingredients:</strong> 100% organic castor.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'coconut') {
+                title.innerText = 'Coconut Oil';
+                details.innerHTML = '<p><strong>Descrition:</strong> A versatile oil that moisturizes skin, boosts hair growth, fights infections, and serves as a natural sunscreen.</p><strong>Benefits:</strong> <ul><li>Deeply hydrates and nourishes the skin</li><li>Boosts hair growth and prevents split ends</li><li>Has antimicrobial properties to fight infections</li><li>Helps with weight loss by boosting metabolism</li><li>Supports brain function and may reduce  the risk of Alzheimer</li><li>Reduces inflammation and soothes eczema</li><li>Acts as a natural makeup remover</li><li>Prevents dandruff and scalp infections</li><li>Protects against UV radiation</li><li>Boosts immune system function</li></ul><br><strong>Ingredients:</strong> 100% organic coconut.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            } else if (product === 'grapeseed') {
+                title.innerText = 'Grapeseed Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A lightweight, non-greasy oil rich in antioxidants and vitamin E that helps tighten skin, reduce acne, and promote hair shine.</p><strong>Benefits:</strong> <ul><li>Contains powerful antioxidants for skin protection</li><li>Reduces wrinkles and fine lines</li><li>Moisturizes without clogging pores</li><li>Strengthens hair and adds shine</li><li>Helps control acne with its anti-inflammatory properties</li><li>Improves wound healing</li><li>Protects against sun damage</li><li>Rich in vitamin E for skin nourishment</li><li>Supports heart health by reducing bad cholesterol</li><li>Boosts collagen production</li></ul><br><strong>Ingredients:</strong> 100% organic grapeseed.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'jojoba') {
+                title.innerText = 'Jojoba Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A balancing oil that closely mimics the skin’s natural sebum, making it excellent for moisturizing, healing acne, and nourishing hair.</p><strong>Benefits:</strong><ul><li>Balances oil production on the skin</li><li>Moisturizes deeply without clogging pores</li><li>Heals acne and reduces breakouts</li><li>Soothes eczema and psoriasis</li><li>Prevents hair loss and promotes hair growth</li><li>Conditions the scalp and prevents dandruff</li><li>Rich in antioxidants that slow aging</li><li>Helps in wound healing and reducing scars</li><li>Protects against bacterial and fungal infections</li><li>Can be used as a natural makeup remover</li></ul><br><strong>Ingredients:</strong> 100% organic jojoba.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'olive') {
+                title.innerText = 'Olive Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A nutrient-rich oil known for hydrating skin, reducing wrinkles, strengthening hair, and supporting heart health.</p><strong>Benefits:</strong><li>Hydrates and softens skin</li><li>Rich in antioxidants that prevent aging</li><li>Reduces inflammation and soothes irritation</li><li>Boosts heart health by lowering cholesterol</li><li>Strengthens hair and reduces dandruff</li><li>Helps in weight management</li><li>Improves digestion</li><li>Supports brain health</li>    <li>Reduces stretch marks</li> <li>Provides a natural glow to the skin</li><br><strong>Ingredients:</strong> 100% organic olive.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'peppermint') {
+                title.innerText = 'Peppermint Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A refreshing essential oil that relieves headaches, soothes muscle pain, promotes hair growth, and aids digestion.</p><strong>Benefits:</strong><li>Soothes muscle pain and tension</li><li>Relieves headaches and migraines</li><li>Improves digestion and reduces bloating</li><li>Clears sinuses and relieves congestion</li><li>Boosts energy levels and alertness</li><li>Repels insects naturally</li><li>Soothes an itchy scalp and promotes hair growth</li><li>Reduces acne and skin irritation</li><li>Helps freshen breath</li><li>Acts as a natural deodorant</li><br><strong>Ingredients:</strong> 100% organic peppermint.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'sunflower') {
+                title.innerText = 'Sunflower Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A vitamin E-rich oil that hydrates skin, reduces signs of aging, strengthens hair, and supports heart health.</p><strong>Benefits:</strong><li>Rich in vitamin E for skin health</li><li>Moisturizes and soothes dry skin</li><li>Fights acne with its anti-inflammatory properties</li><li>Reduces signs of aging</li><li>Protects against UV damage</li><li>Supports heart health</li><li>Strengthens hair and prevents breakage</li><li>Improves digestion</li><li>Reduces cholesterol levels</li><li>Boosts immune function</li><br><strong>Ingredients:</strong> 100% organic sunflower.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'coffee') {
+                title.innerText = 'Coffee Oil';
+                details.innerHTML = '<p><strong>Description:</strong> An antioxidant powerhouse that improves circulation, reduces cellulite, brightens skin, and stimulates hair growth.</p><strong>Benefits:</strong><li>Rich in antioxidants to fight aging</li><li>Boosts collagen production</li><li>Reduces cellulite and stretch marks</li><li>Improves blood circulation</li><li>Protects against UV damage</li><li>Helps reduce dark circles</li><li>Soothes inflammation and redness</li><li>Acts as a natural exfoliator</li><li>Moisturizes deeply</li><li>Strengthens hair follicles</li><br><strong>Ingredients:</strong> 100% organic coffee.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'neem') {
+                title.innerText = 'Neem Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A potent antibacterial and antifungal oil that treats acne, soothes skin conditions, repels insects, and promotes scalp health.</p><strong>Benefits:</strong><li>Powerful antibacterial properties</li><li>Fights acne and blemishes</li><li>Repels insects naturally</li><li>Moisturizes dry and cracked skin</li><li>Soothes eczema and psoriasis</li><li>Reduces dandruff and scalp infections</li><li>Promotes hair growth</li><li>Heals minor cuts and wounds</li><li>Improves skin elasticity</li><li>Supports oral health</li><br><strong>Ingredients:</strong> 100% organic Neem.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'gnut') {
+                title.innerText = 'Ground Nut Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A nutrient-dense oil that supports heart health, boosts energy, improves digestion, and nourishes skin and hair.</p><strong>Benefits:</strong><li>Rich in healthy fats</li><li>Supports heart health</li><li>Boosts energy levels</li><li>Good for skin hydration</li><li>Improves digestion</li><li>Strengthens the immune system</li><li>Enhances cognitive function</li><li>Promotes hair growth</li><li>Contains anti-inflammatory properties</li><li>Regulates blood sugar levels</li><br><strong>Ingredients:</strong> 100% organic ground nut.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'sesame') {
+                title.innerText = 'Sesame(SimSim) Oil';
+                details.innerHTML = '<p><strong>Description:</strong> A deeply nourishing oil known for its anti-aging, healing, and hair-strengthening properties, also used for oil pulling.</p><strong>Benefits:</strong><li>Anti-aging properties</li><li>Promotes oral health</li><li>Improves digestion</li><li>Supports heart health</li><li>Strengthens bones</li><li>Boosts hair growth</li><li>Protects against infections</li><li>Reduces stress and anxiety</li><li>Moisturizes skin</li><li>Prevents premature graying of hair</li><br><strong>Ingredients:</strong> 100% organic simsim.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }else if (product === 'zakuro') {
+                title.innerText = 'Zakuro Oil(Nkoma Mawanga)';
+                details.innerHTML = '<p><strong>Zakuro Oil (Pomegranate Seed Oil):</strong> A luxurious oil rich in antioxidants that boosts collagen, hydrates skin, fights wrinkles, and protects against UV damage.</p><strong>Benefits:</strong><li>Rich in antioxidants that help fight free radicals and slow aging</li><li>Boosts collagen production, reducing fine lines and wrinkles</li><li>Deeply hydrates and nourishes dry and sensitive skin</li><li>Contains anti-inflammatory properties that soothe skin conditions like eczema and psoriasis</li><li>Improves skin elasticity, making it firmer and more youthful</li><li>Promotes hair growth by strengthening hair follicles</li><li>Protects skin from UV damage and environmental pollutants</li><li>Supports wound healing and reduces the appearance of scars</li><li>Balances oil production, making it great for both dry and oily skin types</li><li>Boosts circulation, giving skin a natural, healthy glow</li><br><strong>Ingredients:</strong> 100% organic pomegranate.<br><strong>Application:</strong> Apply generously on skin.<br><strong>Price:</strong> UGX 40,000';
+            }
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        function openAccountModal() {
+            document.getElementById('account-modal').style.display = 'flex';
+        }
+
+        function closeAccountModal() {
+            document.getElementById('account-modal').style.display = 'none';
+        }
+
+        document.getElementById('account-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Account created successfully!');
+            closeAccountModal();
+            closeModal();
+        });
+    </script>
     <footer>
         <p>&copy; 2025 LITZOR UGANDA. All Rights Reserved.</p>
     </footer>
 </body>
 </html>
-
-<style>
-    .search-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 20px auto;
-        width: 70%;
-    }
-    #searchBar {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-    }
-    .search-icon {
-        margin-left: -30px;
-        cursor: pointer;
-    }
-</style>
