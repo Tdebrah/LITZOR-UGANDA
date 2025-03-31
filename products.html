@@ -3,17 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Cards</title>
+    <title>Litzor-Products</title>
     <style>
-        /* body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            background-color: #f8f8f8;
-            height: 100vh;
-        } */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -50,10 +41,30 @@
             padding: 10px;
             text-align: center;      
         }
-        #searchBar{
+        /* Style for the Search Bar */
+        #searchBar {
             height: 30px;
-            width: 70%;
+            width: 70%; /* Adjust the width to your preference */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 15px; /* Rounded corners */
+            border: 2px solid #4CAF50; /* Green border */
+            outline: none; /* Removes the outline when clicked */
+            box-sizing: border-box;
         }
+
+        /* Bold Placeholder */
+        #searchBar::placeholder {
+            font-weight: bold; /* Makes the placeholder text bold */
+            color: #666; /* Change color of placeholder text if needed */
+        }
+
+        /* Optional: Focus effect for the search bar */
+        #searchBar:focus {
+            border-color: #4CAF50; /* Border color when the input is focused */
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Optional shadow on focus */
+        }
+
         .card-container {
             display: flex;
             gap: 20px;
@@ -75,6 +86,7 @@
             height: auto;
             border-radius: 5px;
         }
+    
         .modal, .account-modal {
             display: none;
             position: fixed;
@@ -129,6 +141,11 @@
             cursor: pointer;
             margin-top: 10px;
         }
+    @media screen and (max-width: 768px) {
+        .card {
+            flex: 1 1 100%; /* Make each card take up 100% width on smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -175,23 +192,23 @@
         <div class="card">
             <img src="castor_oil.jpg" alt="Castor Oil">
             <h3>Castor Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
+            <p>A thick oil with antibacterial properties.</p>
             <p><strong>Price:</strong> UGX 50,000</p>
             <a href="#" onclick="openModal('castor')">Read More</a>
         </div>
         <div class="card">
             <img src="coconut_oil.jpg" alt="Coconut Oil">
             <h3>Coconut Oil</h3>
-            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
-            <p><strong>Price:</strong> UGX 35,000</p>
+            <p>A versatile oil that moisturizes skin, boosts hair growth and fights infections</p>
+            <p><strong>Price:</strong> UGX 65,000</p>
             <a href="#" onclick="openModal('coconut')">Read More</a>
         </div>
         
         <div class="card">
             <img src="grapeseed oil.jpg" alt="Grapeseed Oil">
             <h3>Grape Seed Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
-            <p><strong>Price:</strong> UGX 40,000</p>
+            <p>A lightweight, non-greasy oil rich in antioxidants</p>
+            <p><strong>Price:</strong> UGX 45,000</p>
             <a href="#" onclick="openModal('grapeseed')">Read More</a>
         </div>
     </div>
@@ -200,23 +217,23 @@
         <div class="card">
             <img src="jojoba_oil.jpg" alt="Jojoba Oil">
             <h3>Jojoba Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
-            <p><strong>Price:</strong> UGX 40,000</p>
+            <p>A balancing oil that closely mimics the skin’s natural sebum.</p>
+            <p><strong>Price:</strong> UGX 42,000</p>
             <a href="#" onclick="openModal('jojoba')">Read More</a>
         </div>
         <div class="card">
             <img src="olive_oil.jpg" alt="Olive Oil">
             <h3>Olive Oil</h3>
-            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
-            <p><strong>Price:</strong> UGX 35,000</p>
+            <p>A nutrient-rich oil known for hydrating skin and reducing wrinkles.</p>
+            <p><strong>Price:</strong> UGX 25,000</p>
             <a href="#" onclick="openModal('olive')">Read More</a>
         </div>
         
         <div class="card">
             <img src="peppermint oil.jpg" alt="Peppermint">
             <h3>Peppermint Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
-            <p><strong>Price:</strong> UGX 40,000</p>
+            <p> A refreshing essential oil that relieves headaches, soothes muscle pain,.</p>
+            <p><strong>Price:</strong> UGX 65,000</p>
             <a href="#" onclick="openModal('peppermint')">Read More</a>
         </div>
     </div>
@@ -225,14 +242,14 @@
         <div class="card">
             <img src="sunflower oil.jpg" alt="Sunflower">
             <h3>Sunflower Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
-            <p><strong>Price:</strong> UGX 40,000</p>
+            <p>A vitamin E-rich oil that hydrates skin, reduces signs of aging.</p>
+            <p><strong>Price:</strong> UGX 43,000</p>
             <a href="#" onclick="openModal('sunflower')">Read More</a>
         </div>
         <div class="card">
             <img src="coffee oil.jpg" alt="Coffee Oil">
             <h3>Coffee Oil</h3>
-            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
+            <p>An antioxidant powerhouse that improves blood circulation.</p>
             <p><strong>Price:</strong> UGX 200,000</p>
             <a href="#" onclick="openModal('cofee')">Read More</a>
         </div>
@@ -240,7 +257,7 @@
         <div class="card">
             <img src="neem oil.jpg" alt="Neem Oil">
             <h3>Neem Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
+            <p>A potent antibacterial and antifungal oil that treats acne.</p>
             <p><strong>Price:</strong> UGX 50,000</p>
             <a href="#" onclick="openModal('neem')">Read More</a>
         </div>
@@ -250,23 +267,23 @@
         <div class="card">
             <img src="g.nut oil.jpg" alt="G.nut Oil">
             <h3>Ground Nut Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
-            <p><strong>Price:</strong> UGX 40,000</p>
+            <p>A nutrient-dense oil that supports heart health and boosts energy.</p>
+            <p><strong>Price:</strong> UGX 55,000</p>
             <a href="#" onclick="openModal('gnut')">Read More</a>
         </div>
         <div class="card">
             <img src="sesame oil.jpg" alt="sesame Oil">
             <h3>Sesame Oil</h3>
-            <p>Lightweight and non-greasy, deeply hydrates the skin.</p>
-            <p><strong>Price:</strong> UGX 35,000</p>
+            <p>A deeply nourishing oil known for its anti-aging, healing, and hair-strengthening .</p>
+            <p><strong>Price:</strong> UGX 75,000</p>
             <a href="#" onclick="openModal('sesame')">Read More</a>
         </div>
         
         <div class="card">
             <img src="zakuro oil.jpg" alt="Zakuro Oil">
             <h3>Zakuro Oil</h3>
-            <p>Unrefined and organic, great for skin hydration.</p>
-            <p><strong>Price:</strong> UGX 40,000</p>
+            <p>A luxurious oil rich in antioxidants that boosts collagen, hydrates skin and fights wrinkles.</p>
+            <p><strong>Price:</strong> UGX 150,000</p>
             <a href="#" onclick="openModal('zakuro')">Read More</a>
         </div>
     </div>
@@ -396,8 +413,15 @@
             closeModal();
         });
     </script>
-    <footer>
-        <p>&copy; 2025 LITZOR UGANDA. All Rights Reserved.</p>
+    <footer class="footer">
+       <p>Contact us:<a href="mailto:litzoruganda@gmail.com ">litzoruganda@gmail.com</a> |<a href="tel:+256753136530">Call: 075 313-6530</a> </p>
+        <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        <div>
+            <a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">Pinterest</a>
+        </div>
+        <div>
+            <p>&copy; 2025 LITZOR UGANDA. All Rights Reserved.</p>
+        </div>
     </footer>
 </body>
 </html>
